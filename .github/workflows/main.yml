@@ -38,7 +38,7 @@ jobs:
       - name: Kubernetes set context
         uses: Azure/k8s-set-context@v1.1
         with:
-          cluster-type: generic
+          method: kubeconfig
                     
       - name: Deploy to Kubernetes cluster
         uses: Azure/k8s-deploy@v1.5
