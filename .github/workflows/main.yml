@@ -27,7 +27,6 @@ jobs:
           file: ./src/Dockerfile
           push: true
           tags: 
-            acsb30/rotten-potatoes:latest  
-            acsb30/rotten-potatoes:v1
+            acsb30/rotten-potatoes:latest          
             
          
