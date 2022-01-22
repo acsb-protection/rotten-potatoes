@@ -27,6 +27,18 @@ jobs:
           file: ./src/Dockerfile
           push: true
           tags: 
-            acsb30/rotten-potatoes:latest          
+            acsb30/rotten-potatoes:latest    
+  CD:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Kubernetes set context
+        uses: Azure/aks-set-context@v1.1
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.K8S_KUBECONFIG }}
+    
             
          
