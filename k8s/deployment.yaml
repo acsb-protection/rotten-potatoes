@@ -1,19 +1,10 @@
-<<<<<<< HEAD
-=======
-# Deployment do MongoDB
-
->>>>>>> d0ee77a4639c30b579b6a2584d42f1dd329b0a0c
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mongodb
 spec:
   selector:
-<<<<<<< HEAD
-    matchLabels: 
-=======
     matchLabels:
->>>>>>> d0ee77a4639c30b579b6a2584d42f1dd329b0a0c
       app: mongodb
   template:
     metadata:
@@ -21,7 +12,6 @@ spec:
         app: mongodb
     spec:
       containers:
-<<<<<<< HEAD
         - name: mongodb
           image: mongo:4.0
           ports:
@@ -32,21 +22,6 @@ spec:
             - name: MONGO_INITDB_ROOT_PASSWORD
               value: mongopwd
 ---
-=======
-      - name: mongodb
-        image: mongo:5.0.5
-        ports:
-          - containerPort: 27017
-        env:
-          - name: MONGO_INITDB_ROOT_USERNAME
-            value: mongouser
-          - name: MONGO_INITDB_ROOT_PASSWORD
-            value: mongopwd
-
----
-
-#Service do MongoDB
->>>>>>> d0ee77a4639c30b579b6a2584d42f1dd329b0a0c
 apiVersion: v1
 kind: Service
 metadata:
@@ -55,49 +30,26 @@ spec:
   selector:
     app: mongodb
   ports:
-<<<<<<< HEAD
     - port: 27017
   type: ClusterIP
 ---
-=======
-  - port: 27017
-  type: ClusterIP 
-
----
-
-# Deployment da aplicação web Rotten Potatoes
-
->>>>>>> d0ee77a4639c30b579b6a2584d42f1dd329b0a0c
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: web
 spec:
   selector:
-<<<<<<< HEAD
     matchLabels: 
       app: web
-=======
-    matchLabels:
-    app: web
->>>>>>> d0ee77a4639c30b579b6a2584d42f1dd329b0a0c
   template:
     metadata:
       labels:
         app: web
-<<<<<<< HEAD
     spec:
       containers:
       - name: web
         image: acsb30/rotten-potatoes:latest
         ports:
-=======
-    spec: 
-      containers:
-      - name: web
-        image: acsb30/rotten-potatoes:v1
-        ports: 
->>>>>>> d0ee77a4639c30b579b6a2584d42f1dd329b0a0c
         - containerPort: 5000
         env:
         - name: MONGODB_DB
@@ -107,37 +59,19 @@ spec:
         - name: MONGODB_PORT
           value: "27017"
         - name: MONGODB_USERNAME
-<<<<<<< HEAD
           value: mongouser
         - name: MONGODB_PASSWORD
           value: mongopwd
 ---
-=======
-          value: mongouser 
-        - name: MONGODB_PASSWORD 
-          value: mongopwd
-
----
-# Service da aplicação web
->>>>>>> d0ee77a4639c30b579b6a2584d42f1dd329b0a0c
 apiVersion: v1
 kind: Service
 metadata:
   name: web
 spec:
   selector:
-<<<<<<< HEAD
     app: web
   ports:
   - port: 80
     targetPort: 5000
     nodePort: 30000
   type: LoadBalancer
-=======
-    app: web  
-  ports:
-    - port: 80
-      targetPort: 5000
-      nodePort: 30000
-  type: LoadBalancer
->>>>>>> d0ee77a4639c30b579b6a2584d42f1dd329b0a0c
