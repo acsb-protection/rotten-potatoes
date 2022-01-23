@@ -28,6 +28,7 @@ jobs:
           push: true
           tags: 
             acsb30/rotten-potatoes:latest    
+            
   CD:
     needs: [CI]
     runs-on: ubuntu-latest
