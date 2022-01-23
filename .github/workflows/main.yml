@@ -46,7 +46,7 @@ jobs:
         with:
           images: acsb30/rotten-potatoes:latest
           manifests: |
-            src/k8s/deployment.yaml 
+            src/k8s/deployment.yaml --validate=false
           
           
     
